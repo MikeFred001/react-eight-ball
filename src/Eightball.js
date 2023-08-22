@@ -25,18 +25,29 @@ const RESPONSES = [
   { msg: "Very doubtful.", color: "red" },
 ]
 
+/** Eightball application
+ *
+ * Props: messages: array of objects [{msg, color}, ...]
+ *
+ * State:
+ *  - message: current message to be displayed
+ *  - color: background color of eightball
+ *
+ * App -> Eightball
+ */
+
 function Eightball({ messages }) {
   const [message, setMessage] = useState("Think of a Question.");
   const [color, setColor] = useState("black");
 
-  const style = {
-    backgroundColor: color
-  }
-  const rIdx = Math.floor(Math.random() * messages.length);
-
   function setColorAndMessage(){
+    const rIdx = Math.floor(Math.random() * messages.length);
     setMessage(messages[rIdx].msg);
     setColor(messages[rIdx].color);
+  }
+
+  const style = {
+    backgroundColor: color
   }
 
   return(
