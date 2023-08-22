@@ -1,15 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState } from "react";
-import Eightball, { RESPONSES } from "./Eightball"
+import React from "react";
+import Eightball from "./Eightball"
 
 
-/** Renders Eightball component. */
+/** Renders Eightball component.
+ *
+ * Props:
+ *
+ * State:
+ *
+ * App -> Eightball
+*/
 
 function App() {
   return (
     <div className="App">
-      <Eightball messages={ RESPONSES }/>
+      <Eightball />
     </div>
   );
 }

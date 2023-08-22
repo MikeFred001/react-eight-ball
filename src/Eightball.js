@@ -36,28 +36,27 @@ const RESPONSES = [
  * App -> Eightball
  */
 
-function Eightball({ messages }) {
-  const [message, setMessage] = useState("Think of a Question.");
-  const [color, setColor] = useState("black");
+function Eightball({ messages=RESPONSES }) {
+  const initialResponse = { msg: "Think of a Question", color: "black" };
 
-  function setColorAndMessage(){
+  const [response, setResponse] = useState(initialResponse);
+
+  function setRandomResponse(){
     const rIdx = Math.floor(Math.random() * messages.length);
-    setMessage(messages[rIdx].msg);
-    setColor(messages[rIdx].color);
+    setResponse(messages[rIdx]);
   }
 
   const style = {
-    backgroundColor: color
+    backgroundColor: response.color
   }
 
   return(
-    <button className="Eightball" onClick={ setColorAndMessage } style={ style }>
+    <button className="Eightball" onClick={ setRandomResponse } style={ style }>
       <p className="Eightball-message">
-        { message }
+        { response.msg }
       </p>
     </button>
   )
 }
 
 export default Eightball;
-export { RESPONSES };
